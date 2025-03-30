@@ -10,7 +10,7 @@ class Evaluator:
         system_prompt = "You are a blockchain recruitment expert with deep knowledge of blockchain technology and the ability to identify blockchain talent."
 
         user_prompt = f'''
-Please evaluate the candidate's blockchain-related capabilities and determine their suitability for the provided job description (JD) based on three dimensions: their GitHub profile, their resume summary, and their Q&A responses. Assign a comprehensive score (out of 100) based on their overall ability and job fit. Additionally, categorize their skill level as one of the following: Amateur, Junior, Intermediate, or Senior.
+Please evaluate the candidate's blockchain-related capabilities and determine their suitability for the provided job description (JD) based on three dimensions: their GitHub information, their resume summary, and their Q&A responses. Assign a comprehensive score (out of 100) based on their overall ability and job fit. Additionally, categorize their skill level as one of the following: Amateur, Junior, Intermediate, or Senior.
 GitHub user information includes:
     - User Information: Number of followers and following, number of repositories, number of Gist code snippets.
     - Repository Information: Description, README, number of stars, watchers, issues, forks, programming languages used, and the primary language of each repository.
@@ -18,9 +18,9 @@ GitHub user information includes:
 
 Expected Output Example:
 {{
-    "score": 75,
     "ability_level": "Intermediate",
-    "comments": "This user has a certain level of blockchain development experience and has learned Web3.0 development. They have built an original decentralized voting system and developed smart contracts using Solidity. Their projects have received 50 stars on GitHub, indicating some influence. However, their community contributions are relatively low (e.g., infrequent commits, few original projects). Increasing open-source contributions and project maintenance could help them advance to the Advanced level. Overall, this candidate has a relatively high degree of fit with this position."
+    "comments": "Based on the analysis of the user's GitHub information, the user has some experience in blockchain development and has studied Web3.0-related development. They have created an original decentralized voting system and developed smart contracts using Solidity. Their project has received 50 stars on GitHub, indicating a certain level of influence. However, the user's community contributions are relatively low (e.g., infrequent code commits and a limited number of original projects). If they increase their open-source contributions and project maintenance efforts, they have the potential to advance to a senior developer role. Based on the analysis of the user's resume, the user... Based on the analysis of the user's Q&A responses, ... Overall, this candidate has a relatively intermediate degree of fit with this position.",
+    "matching_score": 65
 }}
 
 All provided information is as follows:

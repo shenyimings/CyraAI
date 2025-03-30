@@ -1,28 +1,37 @@
 // import { useManageStore } from './store'
 import type { Metadata } from "next";
+// import { Geist, Geist_Mono } from "next/font/google";
+import geistSans from "../layout";
+import geistMono from "../layout";
 import "../globals.css";
 import { Sidebar } from "./sidebar";
+
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
+
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
   title: "CyraAI - Management",
   description: "Your Web3 talent hire AI Agent.",
 };
-
 export default function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    // const { activeSection, setActiveSection } = useManageStore()
     return (
         <html lang="en">
-            <body
-                className={`antialiased min-h-screen flex flex-col`}
-            >
+            <body className={`antialiased bg-gray-50 flex flex-col min-h-screen`}>
                 {/* Top Banner */}
                 <div className="bg-gradient-to-r from-gray-10 to-gray-100 p-4 border-b">
                     <div className="container mx-auto">
-                        <h1 className="text-gray-900 text-xl font-semibold ml-4">CyraAI Management</h1>
+                        <h1 className="text-gray-900 text-2xl font-semibold ml-4">CyraAI Management</h1>
                     </div>
                 </div>
 
@@ -33,7 +42,7 @@ export default function RootLayout({
                         {children}
                     </div>
                 </div>
-
+            
                 {/* Footer */}
                 <footer className="bg-white border-t mt-auto">
                     <div className="container mx-auto py-6">
@@ -49,7 +58,7 @@ export default function RootLayout({
                         </div>
                     </div>
                 </footer>
-            </body>
+                </body>
         </html>
     );
 }

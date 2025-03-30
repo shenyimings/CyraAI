@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description: "Your Web3 talent hire AI Agent.",
 };
 
+// ${geistSans.variable} ${geistMono.variable}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`antialiased bg-gray-50 flex flex-col min-h-screen`}
       >
         {children}
       </body>

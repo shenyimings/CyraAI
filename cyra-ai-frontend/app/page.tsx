@@ -1,4 +1,9 @@
 "use client";
+declare global {
+  interface Window {
+    ethereum?: any;
+  }
+}
 import Image from "next/image";
 import ParticleHeader from '@/components/ParticleHeader';
 import { Button } from "@/components/ui/button";
@@ -23,8 +28,7 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [isStarted, setIsStarted] = useState(false);
-
-  const [ethereum, setEthereum] = useState(null);
+  const [ethereum, setEthereum] = useState<any>(null);
   useEffect(() => {
       const { ethereum } = window;
       setEthereum(ethereum);
@@ -46,17 +50,17 @@ export default function Home() {
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[48px] row-start-2 items-center text-center relative z-10 w-full">
+      <main className="flex flex-col gap-[36px] row-start-2 items-center text-center relative z-10 w-full">
         {!isStarted ? (
           <>
-            <div className="flex flex-col gap-[24px] max-w-[800px] mt-50">
-              <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+            <div className="flex flex-col gap-[10px] max-w-[800px] mt-36">
+              <h1 className="text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                 CyraAI
               </h1>
             </div>
             <Button 
               onClick={() => setIsStarted(true)}
-              className="text-lg px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 cursor-pointer"
+              className="text-lg px-9 py-6 rounded-full transition-all duration-300 hover:scale-107 active:scale-95 bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 cursor-pointer"
             >
               Start Recruiting Journey
             </Button>
@@ -80,7 +84,7 @@ export default function Home() {
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="title">Company Name</Label>
-                    <Input id="title" placeholder="Enter company name" />
+                    <Input id="title" placeholder="Enter company name" required/>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="title">Website</Label>
@@ -88,15 +92,15 @@ export default function Home() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="title">Job Title</Label>
-                    <Input id="title" placeholder="Enter job title" />
+                    <Input id="title" placeholder="Enter job title" required/>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="description">Job Description</Label>
-                    <Textarea id="description" placeholder="Enter job description" />
+                    <Textarea id="description" placeholder="Enter job description" required/>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="count">Head Count</Label>
-                    <Input id="count" type="number" placeholder="Enter head count" />
+                    <Input id="count" type="number" placeholder="Enter head count" required/>
                   </div>
                 </CardContent>
                 <CardFooter>
@@ -104,7 +108,7 @@ export default function Home() {
                     className="w-full"
                     onClick={connectWallet}
                   >
-                    Hire
+                    Create Job
                   </Button>
                 </CardFooter>
                 </Card>

@@ -4,6 +4,22 @@ import { useManageStore } from './store'
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+  } from "@/components/ui/popover"
+
+  import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "@/components/ui/dialog"
+
+  
+import {
     Card,
     CardContent,
     CardHeader,
@@ -39,7 +55,44 @@ export default function ManagePage() {
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>Active Job Listings</CardTitle>
-                <Button>+ New Job</Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button>+ New Job</Button>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Create New Job Listing</DialogTitle>
+                      <DialogDescription>
+                        Fill in the details for the new job position.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="grid grid-cols-2 gap-4 py-4">
+                      <div className="space-y-2">
+                        <div className="font-medium">Company:</div>
+                        <input type="text" className="w-full rounded-md border p-2" />
+                      </div>
+                      <div className="space-y-2">
+                        <div className="font-medium">Website:</div>
+                        <input type="text" className="w-full rounded-md border p-2" />
+                      </div>
+                      <div className="space-y-2">
+                        <div className="font-medium">Head Count:</div>
+                        <input type="number" className="w-full rounded-md border p-2" />
+                      </div>
+                      <div className="space-y-2">
+                        <div className="font-medium">Status:</div>
+                        <select className="w-full rounded-md border p-2">
+                          <option>Active</option>
+                          <option>Closed</option>
+                        </select>
+                      </div>
+                      <div className="col-span-2 space-y-2">
+                        <div className="font-medium">Description:</div>
+                        <textarea className="w-full rounded-md border p-2" rows={4}></textarea>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
                 </CardHeader>
                 <CardContent>
                 <Table>
@@ -58,7 +111,29 @@ export default function ManagePage() {
                             <TableCell>{job.status}</TableCell>
                             <TableCell>{job.applications}</TableCell>
                             <TableCell>
-                                <Button variant="outline" size="sm">View</Button>
+                                <Popover>
+                                    <PopoverTrigger asChild>
+                                        <Button variant="outline" size="sm">View</Button>
+                                    </PopoverTrigger>
+                                    <PopoverContent className="w-80">
+                                        <div className="space-y-2">
+                                            <h4 className="font-medium">{job.title}</h4>
+                                            <Separator />
+                                            <div className="text-sm">
+                                                <div className="grid grid-cols-2 gap-2">
+                                                    <div className="font-medium">Company:</div>
+                                                    <div>Acme Corp</div>
+                                                    <div className="font-medium">Website:</div>
+                                                    <div>acme.com</div>
+                                                    <div className="font-medium">Head Count:</div>
+                                                    <div>5</div>
+                                                    <div className="font-medium">Description:</div>
+                                                </div>
+                                                <p className="mt-2">We are looking for an experienced developer to join our team...</p>
+                                            </div>
+                                        </div>
+                                    </PopoverContent>
+                                </Popover>
                             </TableCell>
                         </TableRow>
                     ))}

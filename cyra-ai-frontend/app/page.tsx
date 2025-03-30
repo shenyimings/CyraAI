@@ -1,7 +1,14 @@
 "use client";
+interface EthereumProvider {
+  request: (args: { method: string }) => Promise<string[]>;
+  isMetaMask?: boolean;
+  // 可以根据需要添加其他属性
+}
+
+// 修改全局声明
 declare global {
   interface Window {
-    ethereum?: any;
+    ethereum?: EthereumProvider;
   }
 }
 import Image from "next/image";
@@ -28,10 +35,11 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [isStarted, setIsStarted] = useState(false);
-  const [ethereum, setEthereum] = useState<any>(null);
+  const [ethereum, setEthereum] = useState<EthereumProvider | null>(null);
+
   useEffect(() => {
-      const { ethereum } = window;
-      setEthereum(ethereum);
+    const { ethereum } = window;
+    setEthereum(ethereum || null);
   }, []);
 
   const connectWallet = async () => {

@@ -19,10 +19,30 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [isStarted, setIsStarted] = useState(false);
+
+  const [ethereum, setEthereum] = useState(null);
+  useEffect(() => {
+      const { ethereum } = window;
+      setEthereum(ethereum);
+  }, []);
+
+  const connectWallet = async () => {
+		try {
+			if(!ethereum) return alert("Please install Metamask");
+
+			const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+
+			// window.location.reload();
+      window.location.href = '/manage';
+		} catch (error) {
+			console.log(error);
+			throw new Error("No ethereum object.")
+		}
+	}
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -80,7 +100,12 @@ export default function Home() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full">Hire</Button>
+                  <Button 
+                    className="w-full"
+                    onClick={connectWallet}
+                  >
+                    Hire
+                  </Button>
                 </CardFooter>
                 </Card>
               </TabsContent>
@@ -93,8 +118,12 @@ export default function Home() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <Button variant="outline" className="w-full">
-                  Connect Wallet
+                  <Button 
+                    variant="outline"
+                    onClick={connectWallet}
+                    className="w-full"
+                  >
+                    Connect Wallet
                   </Button>
                   <Image
                     src="/metamask.svg"

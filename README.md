@@ -11,7 +11,7 @@ CyraAI is an intelligent recruitment automation platform that streamlines the en
 5. Tech Stack
 6. Contact
 
-[Demo Video](#) | 
+[Demo Video](#) 
 ## Why CyraAI?
 
 Traditional recruitment is inefficient and time-consuming. Success often depends on manual reviews, subjective assessments, and limited candidate options. CyraAI addresses these challenges by:

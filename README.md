@@ -1,7 +1,5 @@
 # CyraAI: 自动化招聘助手
 
-**简化. 评估. 连接.**
-
 CyraAI是一个智能招聘自动化平台，它简化了从候选人发现到最终面试的整个招聘流程。由AI代理驱动并与流行的社交平台集成，CyraAI彻底革新了公司寻找、评估和连接合格候选人的方式。
 
 # 目录
@@ -10,11 +8,8 @@ CyraAI是一个智能招聘自动化平台，它简化了从候选人发现到�
 2. CyraAI如何工作
 3. 代理架构
 4. 工作流程
-5. 用户流程
-6. 技术栈
-7. API集成
-8. 部署
-9. 联系方式
+5. 技术栈
+6. 联系方式
 
 [演示视频](#) | [原型应用](#) | [API文档](#) | [用户指南](#) | [贡献指南](#)
 
@@ -32,7 +27,7 @@ CyraAI是一个智能招聘自动化平台，它简化了从候选人发现到�
 
 CyraAI创造更高效和有效的招聘流程。这种方法减少了招聘时间，提高了候选人质量，并最小化了选择过程中的人为偏见。
 
-![CyraAI工作流程](https://github.com/user-attachments/assets/cyra-workflow.png)
+![CyraAI工作流程](https://github.com/shenyimings/CyraAI/blob/main/assets/architecture.png)
 
 ## CyraAI如何工作
 

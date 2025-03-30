@@ -59,6 +59,14 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
+                    <Label htmlFor="title">Company Name</Label>
+                    <Input id="title" placeholder="Enter company name" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="title">Website</Label>
+                    <Input id="title" placeholder="Enter company website" />
+                  </div>
+                  <div className="space-y-2">
                     <Label htmlFor="title">Job Title</Label>
                     <Input id="title" placeholder="Enter job title" />
                   </div>
@@ -79,7 +87,7 @@ export default function Home() {
               <TabsContent value="wallet">
                 <Card>
                 <CardHeader>
-                  <CardTitle>Connect Wallet</CardTitle>
+                  <CardTitle>Login - Connect to CyraAI</CardTitle>
                   <CardDescription>
                   Choose your preferred wallet to connect
                   </CardDescription>
@@ -88,12 +96,13 @@ export default function Home() {
                   <Button variant="outline" className="w-full">
                   Connect Wallet
                   </Button>
-                  <Button variant="outline" className="w-full">
-                  MetaMask
-                  </Button>
-                  <Button variant="outline" className="w-full">
-                  WalletConnect
-                  </Button>
+                  <Image
+                    src="/metamask.svg"
+                    alt="MetaMask logo"
+                    width={140}
+                    height={140}
+                    className="mt-8 mb-4 mx-auto"
+                  />
                 </CardContent>
                 </Card>
               </TabsContent>

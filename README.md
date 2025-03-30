@@ -1,129 +1,114 @@
-# CyraAI: 自动化招聘助手
+# CyraAI: Automated Recruitment Assistant
 
-CyraAI是一个智能招聘自动化平台，它简化了从候选人发现到最终面试的整个招聘流程。由AI代理驱动并与流行的社交平台集成，CyraAI彻底革新了公司寻找、评估和连接合格候选人的方式。
+CyraAI is an intelligent recruitment automation platform that streamlines the entire hiring process from candidate discovery to final interviews. Powered by AI agents and integrated with popular social platforms, CyraAI revolutionizes how companies find, evaluate, and connect with qualified candidates.
 
-# 目录
+# Index
 
-1. 为什么选择CyraAI？
-2. CyraAI如何工作
-3. 代理架构
-4. 工作流程
-5. 技术栈
-6. 联系方式
+1. Why CyraAI?
+2. How CyraAI Works
+3. Agent Architecture
+4. Workflow Process
+5. Tech Stack
+6. Contact
 
-[演示视频](#) | [原型应用](#) | [API文档](#) | [用户指南](#) | [贡献指南](#)
+[Demo Video](#) | [Prototype App](#) | [API Documentation](#) | [User Guide](#) | [Contribution Guide](#)
 
-## 为什么选择CyraAI？
+## Why CyraAI?
 
-传统招聘效率低下且耗时。成功往往依赖于人工审核、主观评估和有限的候选人选项。CyraAI通过以下方式解决这些挑战：
+Traditional recruitment is inefficient and time-consuming. Success often depends on manual reviews, subjective assessments, and limited candidate options. CyraAI addresses these challenges by:
 
-- **自动候选人筛选：** AI代理根据可衡量的资格和经验扫描和验证候选人，而不仅仅是关键词。
-- **智能文档处理：** 解析和分析简历、作品集和证书，以识别最有前途的候选人。
-- **简化沟通：** 通过集成的消息平台自动进行初步接触和初步面试。
-- **数据驱动决策：** 使用分析和客观评估做出更好的招聘决策。
-- **无缝平台集成：** 连接现有的招聘网站、社交网络和人力资源系统。
+- **Automated Candidate Screening:** AI agents scan and validate candidates based on measurable qualifications and experience, not just keywords.
+- **Intelligent Document Processing:** Parse and analyze resumes, portfolios, and credentials to identify the most promising candidates.
+- **Streamlined Communication:** Automate initial outreach and preliminary interviews via integrated messaging platforms.
+- **Data-Driven Decision Making:** Use analytics and objective assessments to make better hiring decisions.
+- **Seamless Platform Integration:** Connect with existing job boards, social networks, and HR systems.
 
-### AI驱动的招聘革命
+### The AI-Powered Recruitment Revolution
 
-CyraAI创造更高效和有效的招聘流程。这种方法减少了招聘时间，提高了候选人质量，并最小化了选择过程中的人为偏见。
+CyraAI creates a more efficient and effective hiring process. This approach reduces time-to-hire, improves candidate quality, and minimizes human bias in the selection process.
 
-![CyraAI工作流程](https://github.com/shenyimings/CyraAI/blob/main/assets/architecture.png)
+![CyraAI Workflow](https://github.com/shenyimings/CyraAI/blob/main/assets/architecture.png)
 
-## CyraAI如何工作
+## How CyraAI Works
 
-1. **多渠道候选人发现**
-   - AI agent生成招聘信息并上传至twitter
+1. **Multi-Channel Candidate Discovery**
+   - AI agents generate job postings and upload them to Twitter
+   
+2. **Intelligent Screening & Assessment**
+   - AI assessment evaluates candidate fit for specific roles
+   - Automated qualification verification and ranking
+   
+3. **Streamlined Communication**
+   - Integrated Telegram bot for candidate interactions
+   - Automated interview scheduling and preliminary screening
+   - Two-way communication between candidates and hiring teams
+   
+4. **Comprehensive Analytics**
+   - Track recruitment metrics and pipeline performance
+   - Optimize job descriptions based on candidate responses
+   - Improve hiring efficiency through data-driven insights
 
-2. **智能筛选与评估**
-   - AI评估对特定角色的候选人适合度
-   - 自动资格验证和排名
+## Agent Architecture
 
-3. **简化沟通**
-   - 集成Telegram机器人用于候选人互动
-   - 自动面试安排和初步筛选
-   - 候选人和招聘团队之间的双向沟通
+1. **Discovery Agent**
+   - Connects to multiple data sources (LinkedIn, job boards, etc.)
+   - Filters candidates based on job requirements
+   - Prioritizes candidates based on qualifications and match score
+   - Maintains discovery queue and prevents duplicate processing
 
-4. **全面分析**
-   - 跟踪招聘指标和渠道表现
-   - 根据候选人反应优化职位描述
-   - 通过数据驱动的见解提高招聘效率
+2. **Document Processing Agent**
+   - Parses resumes and professional profiles
+   - Extracts relevant skills, experience, and qualifications
+   - Standardizes candidate information for consistent evaluation
+   - Maintains a structured database of candidate information
 
-## 代理架构
+3. **Assessment Agent**
+   - Evaluates candidate qualifications against job requirements
+   - Flags promising candidates with "Seems ok!" status
+   - Identifies unqualified candidates with "Disqualified!" status
+   - Generates standardized assessment reports
 
-1. **发现代理**
-   - 连接多个数据源（LinkedIn、招聘网站等）
-   - 根据职位要求筛选候选人
-   - 根据资格和匹配分数优先排序候选人
-   - 维护发现队列并防止重复处理
+4. **Communication Agent**
+   - Manages Telegram bot interactions with candidates
+   - Conducts preliminary interviews via chat
+   - Schedules interviews with human recruiters
+   - Provides candidates with application status updates
 
-2. **文档处理代理**
-   - 解析简历和专业档案
-   - 提取相关技能、经验和资格
-   - 标准化候选人信息以进行一致评估
-   - 维护候选人信息的结构化数据库
+## Tech Stack
 
-3. **评估代理**
-   - 根据职位要求评估候选人资格
-   - 用"看起来不错！"状态标记有前途的候选人
-   - 用"不合格！"状态识别不合格的候选人
-   - 生成标准化评估报告
-
-4. **通信代理**
-   - 管理与候选人的Telegram机器人互动
-   - 通过聊天进行初步面试
-   - 安排与人类招聘人员的面试
-   - 向候选人提供申请状态更新
-
-## 技术栈
-
-### 后端/基础设施
-
-   - **Docker**（容器化）
-   - **Kubernetes**（编排）
-   - **Node.js**（服务器运行时）
-   - **Express**（API框架）
-   - **MongoDB**（文档数据库）
-   - **Redis**（缓存）
-
----
-
-### AI/机器学习
-
-   - **TensorFlow/PyTorch**（ML框架）
-   - **OpenAI API**（自然语言处理）
-   - **spaCy**（文档处理的NLP）
-   - **scikit-learn**（机器学习算法）
-   - **Pandas**（数据操作）
+### Backend
+   - **Docker** (Containerization)
+   - **Kubernetes** (Orchestration)
+   - **Node.js** (Server Runtime)
+   - **Express** (API Framework)
+   - **MongoDB** (Document Database)
+   - **Redis** (Caching)
 
 ---
 
-### 前端
-
-   - **React**（UI框架）
-   - **TypeScript**（编程语言）
-   - **Material UI**（组件库）
-   - **Redux**（状态管理）
-   - **Axios**（HTTP客户端）
+### Frontend
+   - **React** (UI Framework)
+   - **TypeScript** (Programming Language)
+   - **Material UI** (Component Library)
+   - **Redux** (State Management)
+   - **Axios** (HTTP Client)
 
 ---
 
-### 通信/集成
+### Communication/Integration
+   - **Telegram Bot API** (Candidate Communication)
+   - **OAuth** (Authentication)
+   - **REST APIs** (External System Integration)
+   - **WebSockets** (Real-time Updates)
 
-   - **Telegram Bot API**（候选人通信）
-   - **OAuth**（身份验证）
-   - **REST APIs**（外部系统集成）
-   - **WebSockets**（实时更新）
+---
 
-## API集成
+## API Integrations
+   - **LinkedIn API** (Professional Network)
+   - **Indeed API** (Job Board)
+   - **Telegram Bot API** (Messaging)
+   - **Google Calendar API** (Interview Scheduling)
 
-   - **LinkedIn API**（专业网络）
-   - **Indeed API**（招聘网站）
-   - **Telegram Bot API**（消息）
-   - **Google Calendar API**（面试安排）
-   - **Zoom API**（视频面试）
+## Contact
 
-## 联系方式
-
-**电子邮件：** 
-
-**GitHub：** [shenyimings](https://github.com/shenyimings)
+**GitHub:** [shenyimings](https://github.com/shenyimings)

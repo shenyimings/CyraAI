@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useManageStore } from './store'
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -31,7 +31,7 @@ const candidates = [
 ];
 
 export default function ManagePage() {
-    const [activeSection, setActiveSection] = useState("jobs");
+    const { activeSection } = useManageStore()
 
     return (
         <div className="space-y-6">

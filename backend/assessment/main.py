@@ -15,9 +15,10 @@ headers = {
     "Accept": "application/vnd.github+json"
 }
 
-@app.route('/parse_github_user', methods=['POST'])
+@app.route("/parse_github_user", methods=["POST"])
 def parse_github_user():
-    username = request.form.get('username')
+    body = request.get_json()
+    username = body["username"]
     if not username:
         return jsonify({"error": "请提供有效的用户名"}), 400
     
@@ -30,16 +31,22 @@ def parse_github_user():
     }
     return jsonify(result)
 
-@app.route('/llm_analyze_info', methods=['POST'])
+@app.route("/llm_analyze_info", methods=["POST"])
 def llm_analyze_info():
-    github_info = request.get_json()
-    if not github_info:
-        return jsonify({"error": "请提供有效的GitHub信息"}), 400
+    all_info = request.get_json()
+    if not all_info:
+        return jsonify({"error": "请提供有效的信息"}), 400
+    
+    github_info = all_info["github_info"]
+    resume_summary = all_info["resume_summary"]
+    qa_resp = all_info["qa_resp"]
+    job_description = all_info["job_description"]
+
     evaluator = Evaluator(API_KEY)
-    content = evaluator.run(github_info)
+    content = evaluator.run(github_info, resume_summary, qa_resp, job_description)
     res = parse_json(content)
     return jsonify(res)
     
 
-if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", debug=True, port=8080)
